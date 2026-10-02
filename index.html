@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Manage your profile, personal information and email addresses."
+    />
+    <meta name="theme-color" content="#4182f9" />
+    <title>Profile settings</title>
+    <link rel="icon" href="assets/dashboard.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#profile">Skip to profile</a>
+    <div class="app">
+      <aside class="sidebar" aria-label="Main navigation">
+        <nav class="nav-list">
+          <a
+            class="nav-link active"
+            href="#profile"
+            aria-label="Profile overview"
+            aria-current="page"
+            title="Profile overview"
+            ><img src="assets/dashboard.svg" alt="" width="24" height="24"
+          /></a>
+          <a
+            class="nav-link"
+            href="#personal-details"
+            aria-label="Personal details"
+            title="Personal details"
+            ><img src="assets/graph.svg" alt="" width="24" height="24"
+          /></a>
+          <a
+            class="nav-link"
+            href="#preferences"
+            aria-label="Preferences"
+            title="Preferences"
+            ><img src="assets/medal.svg" alt="" width="24" height="24"
+          /></a>
+          <a
+            class="nav-link"
+            href="#email-section"
+            aria-label="Email addresses"
+            title="Email addresses"
+            ><img src="assets/messages.svg" alt="" width="24" height="24"
+          /></a>
+          <a
+            class="nav-link"
+            href="#personal-details"
+            aria-label="Profile settings"
+            title="Profile settings"
+            ><img src="assets/settings.svg" alt="" width="24" height="24"
+          /></a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <hgroup class="welcome">
+            <h1>Welcome, Amanda</h1>
+            <p>Tue, 07 June 2022</p>
+          </hgroup>
+          <div class="header-actions">
+            <div class="search-container">
+              <form class="search-box" id="search-form" role="search">
+                <img src="assets/search.svg" alt="" width="24" height="24" />
+                <input
+                  type="search"
+                  id="search"
+                  placeholder="Search"
+                  aria-label="Search profile fields"
+                  autocomplete="off"
+                  aria-describedby="search-help"
+                />
+              </form>
+              <div class="search-results" id="search-results" hidden></div>
+              <span class="sr-only" id="search-help"
+                >Search a field by name, then choose a result to jump to
+                it.</span
+              >
+            </div>
+            <div class="notification-container">
+              <button
+                class="icon-button"
+                id="notifications-button"
+                type="button"
+                aria-label="Notifications"
+                aria-expanded="false"
+                aria-controls="notifications"
+              >
+                <img
+                  src="assets/notification.svg"
+                  alt=""
+                  width="24"
+                  height="24"
+                />
+              </button>
+              <section
+                class="notification-panel"
+                id="notifications"
+                hidden
+                aria-label="Notifications"
+              >
+                <strong>Notifications</strong>
+                <p>You're all caught up.</p>
+              </section>
+            </div>
+            <a class="account-link" href="#profile" aria-label="View profile"
+              ><img
+                class="account-avatar"
+                src="assets/amanda.png"
+                alt="Amanda"
+                width="52"
+                height="52"
+            /></a>
+          </div>
+        </header>
+
+        <section
+          class="profile-card"
+          id="profile"
+          aria-label="Profile settings"
+        >
+          <div class="profile-banner" aria-hidden="true"></div>
+          <div class="card-content">
+            <header class="profile-heading">
+              <section class="profile-identity" aria-label="Profile identity">
+                <img
+                  class="profile-avatar"
+                  src="assets/alexa.png"
+                  alt="Alexa Rawles"
+                  width="100"
+                  height="100"
+                />
+                <hgroup class="profile-copy">
+                  <h2 id="profile-name">Alexa Rawles</h2>
+                  <p>alexarawles@gmail.com</p>
+                </hgroup>
+              </section>
+              <button
+                class="button button-primary"
+                id="edit-button"
+                type="button"
+                aria-pressed="false"
+              >
+                Edit
+              </button>
+            </header>
+
+            <form
+              class="profile-form"
+              id="profile-form"
+              aria-label="Personal information"
+            >
+              <fieldset class="fields" id="personal-details">
+                <legend class="sr-only">Personal details</legend>
+                <label class="field" data-search="Full Name" for="full-name">
+                  <span>Full Name</span>
+                  <input
+                    id="full-name"
+                    name="fullName"
+                    type="text"
+                    placeholder="Your First Name"
+                    autocomplete="name"
+                    maxlength="80"
+                    readonly
+                  />
+                </label>
+                <label class="field" data-search="Nick name" for="nick-name">
+                  <span>Nick name</span>
+                  <input
+                    id="nick-name"
+                    name="nickName"
+                    type="text"
+                    placeholder="Your Nick Name"
+                    autocomplete="nickname"
+                    maxlength="50"
+                    readonly
+                  />
+                </label>
+                <label class="field" data-search="Gender" for="gender">
+                  <span>Gender</span>
+                  <span class="select-wrap"
+                    ><select id="gender" name="gender" disabled>
+                      <option value="">Your Gender</option>
+                      <option>Female</option>
+                      <option>Male</option>
+                      <option>Non-binary</option>
+                      <option>Prefer not to say</option></select
+                    ><img
+                      src="assets/chevron.svg"
+                      width="24"
+                      height="24"
+                      alt=""
+                  /></span>
+                </label>
+                <label class="field" data-search="Country" for="country">
+                  <span>Country</span>
+                  <span class="select-wrap"
+                    ><select
+                      id="country"
+                      name="country"
+                      autocomplete="country-name"
+                      disabled
+                    >
+                      <option value="">Your Country</option>
+                      <option>Vietnam</option>
+                      <option>United States</option>
+                      <option>United Kingdom</option>
+                      <option>Canada</option>
+                      <option>Australia</option>
+                      <option>Singapore</option>
+                      <option>Japan</option>
+                      <option>Other</option></select
+                    ><img
+                      src="assets/chevron.svg"
+                      width="24"
+                      height="24"
+                      alt=""
+                  /></span>
+                </label>
+                <label
+                  class="field"
+                  id="preferences"
+                  data-search="Language"
+                  for="language"
+                >
+                  <span>Language</span>
+                  <span class="select-wrap"
+                    ><select id="language" name="language" disabled>
+                      <option value="">Your Language</option>
+                      <option>English</option>
+                      <option>Vietnamese</option>
+                      <option>French</option>
+                      <option>Japanese</option>
+                      <option>Chinese</option>
+                      <option>Other</option></select
+                    ><img
+                      src="assets/chevron.svg"
+                      width="24"
+                      height="24"
+                      alt=""
+                  /></span>
+                </label>
+                <label class="field" data-search="Time Zone" for="time-zone">
+                  <span>Time Zone</span>
+                  <span class="select-wrap"
+                    ><select id="time-zone" name="timeZone" disabled>
+                      <option value="">Your Time Zone</option>
+                      <option value="Asia/Ho_Chi_Minh">
+                        (UTC+07:00) Ho Chi Minh City
+                      </option>
+                      <option value="Asia/Singapore">
+                        (UTC+08:00) Singapore
+                      </option>
+                      <option value="Asia/Tokyo">(UTC+09:00) Tokyo</option>
+                      <option value="Europe/London">London</option>
+                      <option value="America/New_York">New York</option>
+                      <option value="America/Los_Angeles">Los Angeles</option>
+                      <option value="UTC">UTC</option></select
+                    ><img
+                      src="assets/chevron.svg"
+                      width="24"
+                      height="24"
+                      alt=""
+                  /></span>
+                </label>
+              </fieldset>
+            </form>
+
+            <section
+              class="email-section"
+              id="email-section"
+              aria-labelledby="email-title"
+            >
+              <h2 id="email-title">My email Address</h2>
+              <ul class="email-list" id="email-list">
+                <li class="email-item">
+                  <span class="email-icon"
+                    ><img src="assets/email.svg" alt="" width="24" height="24"
+                  /></span>
+                  <p class="email-copy">
+                    <span class="email-address">alexarawles@gmail.com</span
+                    ><span class="email-date">1 month ago</span>
+                  </p>
+                </li>
+              </ul>
+              <button
+                class="button button-secondary"
+                id="add-email-button"
+                type="button"
+              >
+                +Add Email Address
+              </button>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="email-dialog" aria-labelledby="dialog-title">
+      <form id="email-form">
+        <h2 id="dialog-title">Add Email Address</h2>
+        <p class="dialog-note">Add another email address to this profile.</p>
+        <label for="new-email">Email address</label>
+        <input
+          id="new-email"
+          type="email"
+          placeholder="name@example.com"
+          autocomplete="email"
+          required
+          maxlength="254"
+        />
+        <p class="form-error" id="email-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button
+            class="button button-secondary"
+            type="button"
+            id="cancel-email"
+          >
+            Cancel</button
+          ><button class="button button-primary" type="submit">
+            Add email
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <div
+      class="toast"
+      id="status"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
+  </body>
+</html>
